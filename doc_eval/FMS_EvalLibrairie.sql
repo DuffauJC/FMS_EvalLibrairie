@@ -28,10 +28,12 @@ CREATE TABLE `books` (
   `unitaryPrice` double,
   `descritpion` varchar(255),
   `publishing_house` varchar(255),
-  `thematic_1` varchar(255),
-  `thematic_2` varchar(255),
-  `thematic_3` varchar(255),
-  `thematic_4` varchar(255)
+  `thematic_1` int,
+  `thematic_2` int,
+  `thematic_3` int,
+  `thematic_4` int,
+  `state` varchar(255),
+  `author` varchar(255)
 );
 
 CREATE TABLE `thematics` (
@@ -46,10 +48,10 @@ ALTER TABLE `orders` ADD FOREIGN KEY (`idCustomer`) REFERENCES `customers` (`id`
 
 ALTER TABLE `orderLines` ADD FOREIGN KEY (`idOrder`) REFERENCES `orders` (`id`);
 
-ALTER TABLE `thematics` ADD FOREIGN KEY (`name`) REFERENCES `books` (`thematic_1`);
+ALTER TABLE `thematics` ADD FOREIGN KEY (`id`) REFERENCES `books` (`thematic_1`);
 
-ALTER TABLE `thematics` ADD FOREIGN KEY (`name`) REFERENCES `books` (`thematic_2`);
+ALTER TABLE `thematics` ADD FOREIGN KEY (`id`) REFERENCES `books` (`thematic_2`);
 
-ALTER TABLE `thematics` ADD FOREIGN KEY (`name`) REFERENCES `books` (`thematic_3`);
+ALTER TABLE `thematics` ADD FOREIGN KEY (`id`) REFERENCES `books` (`thematic_3`);
 
-ALTER TABLE `thematics` ADD FOREIGN KEY (`name`) REFERENCES `books` (`thematic_4`);
+ALTER TABLE `thematics` ADD FOREIGN KEY (`id`) REFERENCES `books` (`thematic_4`);
