@@ -1,6 +1,7 @@
 package fr.fms;
 
 
+import fr.fms.business.IShopImpl;
 import fr.fms.dao.BookDao;
 import fr.fms.dao.OrderDao;
 import fr.fms.dao.ThematicDao;
@@ -18,6 +19,7 @@ public class Test {
 	private static CustomerDao customerDao;
 	private static OrderDao orderDao;
 	private static ThematicDao thematicDao;
+	
 	/**
 	 * 
 	 * @param args
@@ -92,6 +94,7 @@ public class Test {
 		System.out.println("-------------------------------------------------------");
 
 	
+		
 		
 
 	}

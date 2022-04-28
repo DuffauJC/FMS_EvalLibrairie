@@ -153,7 +153,7 @@ public class IShopImpl implements IShop {
 	public double getTotal() {
 		double [] total = {0};
 		caddy.values().forEach((a) -> total[0] += a.getUnitaryPrice() * a.getQty()); 	
-		return Math.floor(total[0]);
+		return total[0];
 	}
 
 	/**

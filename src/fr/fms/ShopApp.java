@@ -82,8 +82,6 @@ public class ShopApp {
 	}
 	/**
 	 * principal function
-	 * @param user
-	 * @param scan
 	 */
 	public static void mainFunction() {
 
@@ -92,7 +90,7 @@ public class ShopApp {
 
 		while(action != 5) {
 			try {
-			
+
 				showMenu();
 
 				action = scan.nextInt();
@@ -176,7 +174,10 @@ public class ShopApp {
 	 * enregistremnt client
 	 */
 	private static void register() {
-
+		String regExp="[a-zA-Z]+";
+		
+		String rep;
+		
 		String name=""; 
 		String firstName="";
 		String adress="";
@@ -184,9 +185,15 @@ public class ShopApp {
 		int phone=0;
 
 		System.out.println("Enter your name."); 
-		name=scan.next();
+		rep=scan.next();
+		if (rep.matches(regExp)) {
+			name=rep;
+		}
 		System.out.println("Enter your firstname.");
-		firstName=scan.next();
+		rep=scan.next();
+		if (rep.matches(regExp)) {
+			firstName=rep;
+		}
 		System.out.println("Enter your adress.");
 		scan.nextLine();
 		adress= scan.nextLine();
@@ -277,10 +284,10 @@ public class ShopApp {
 
 				double subTotal=prix*qty;
 				total+=subTotal;
-
+				
 			}
 			// affichage du total de la commande
-			System.out.printf("| %96s | %-2s |%n"," TOTAL COMMANDE",Math.floor(total));
+			System.out.printf("| %96s | %-2s |%n"," TOTAL COMMANDE",total);
 			System.out.println("------------------------------------------------------------------------------------------------------------");		
 		}
 	}
