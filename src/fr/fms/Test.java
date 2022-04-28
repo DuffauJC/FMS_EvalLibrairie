@@ -1,13 +1,17 @@
 package fr.fms;
 
 
+import java.util.Date;
+
 import fr.fms.business.IShopImpl;
 import fr.fms.dao.BookDao;
 import fr.fms.dao.OrderDao;
+import fr.fms.dao.OrderLineDao;
 import fr.fms.dao.ThematicDao;
 import fr.fms.dao.CustomerDao;
 import fr.fms.entities.Book;
 import fr.fms.entities.Order;
+import fr.fms.entities.OrderLine;
 import fr.fms.entities.Thematic;
 import fr.fms.entities.Customer;
 
@@ -18,6 +22,7 @@ public class Test {
 	private static BookDao bookDao;	
 	private static CustomerDao customerDao;
 	private static OrderDao orderDao;
+	private static OrderLineDao orderLineDao;
 	private static ThematicDao thematicDao;
 	
 	/**
@@ -92,8 +97,9 @@ public class Test {
 		 * System.out.println("Cleint inexistant"); }
 		 */
 		System.out.println("-------------------------------------------------------");
-
+		
 	
+			
 		
 		
 
@@ -106,6 +112,7 @@ public class Test {
 		bookDao= new BookDao();
 		customerDao=new CustomerDao();
 		orderDao=new OrderDao();
+		orderLineDao=new OrderLineDao();
 		thematicDao=new ThematicDao();
 	}
 

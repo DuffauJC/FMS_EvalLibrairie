@@ -35,51 +35,7 @@ public class ShopApp {
 
 	}
 
-	/**
-	 * welcome message poster
-	 */
-	private static void welcome() {
-		System.out.println();
-		System.out.println("********************************************");
-		System.out.println("   BIENVENUE CHEZ LA LIBRAIRIE DU CAHIER");
-		System.out.println("********************************************");		
-		System.out.println();
-	}
-	/**
-	 * menu poster
-	 */
-	public static  void showMenu() {
-		System.out.println("*******************************************************************************************");
-		System.out.println("MENU");
-		System.out.print("1.Ajouter au panier - ");
-		System.out.print("2.Voir le panier - ");
-		System.out.print("3.Modifier panier - ");
-		System.out.print("4.Valider commande - ");
-		System.out.print("5.Sortir \n");
-		System.out.println("********************************************************************************************");
-	}
 
-	/**
-	 * thematics poster
-	 */
-	public static  void showThematics() {
-
-		// list of book thematic
-		ArrayList<Thematic>cat=	shopJob.getListThematics();
-
-		System.out.println("List of thématics.\n");
-		System.out.println("------------------------------------------------------------------------------------------------------------------");
-		System.out.printf("| %-15s | %-22s | %-68s |%n", "REF", "NOM", "DESCRIPTION");
-		System.out.println("|-----------------|------------------------|----------------------------------------------------------------------|");
-
-		for (int i = 0; i < cat.size(); i++) {
-			System.out.printf("| %-15s | %-22s | %-68s |%n", cat.get(i).getIdThematic(), cat.get(i).getName(),
-					cat.get(i).getDescription());
-		}
-		System.out.println("------------------------------------------------------------------------------------------------------------------");
-		cat.clear();
-
-	}
 	/**
 	 * principal function
 	 */
@@ -171,6 +127,51 @@ public class ShopApp {
 
 	}
 	/**
+	 * welcome message poster
+	 */
+	private static void welcome() {
+		System.out.println();
+		System.out.println("********************************************");
+		System.out.println("   BIENVENUE CHEZ LA LIBRAIRIE DU CAHIER");
+		System.out.println("********************************************");		
+		System.out.println();
+	}
+	/**
+	 * menu poster
+	 */
+	public static  void showMenu() {
+		System.out.println("*******************************************************************************************");
+		System.out.println("MENU");
+		System.out.print("1.Ajouter au panier - ");
+		System.out.print("2.Voir le panier - ");
+		System.out.print("3.Modifier panier - ");
+		System.out.print("4.Valider commande - ");
+		System.out.print("5.Sortir \n");
+		System.out.println("********************************************************************************************");
+	}
+
+	/**
+	 * thematics poster
+	 */
+	public static  void showThematics() {
+
+		// list of book thematic
+		ArrayList<Thematic>cat=	shopJob.getListThematics();
+
+		System.out.println("List of thématics.\n");
+		System.out.println("------------------------------------------------------------------------------------------------------------------");
+		System.out.printf("| %-15s | %-22s | %-68s |%n", "REF", "NOM", "DESCRIPTION");
+		System.out.println("|-----------------|------------------------|----------------------------------------------------------------------|");
+
+		for (int i = 0; i < cat.size(); i++) {
+			System.out.printf("| %-15s | %-22s | %-68s |%n", cat.get(i).getIdThematic(), cat.get(i).getName(),
+					cat.get(i).getDescription());
+		}
+		System.out.println("------------------------------------------------------------------------------------------------------------------");
+		cat.clear();
+
+	}
+	/**
 	 * enregistremnt client
 	 */
 	private static void register() {
@@ -225,13 +226,13 @@ public class ShopApp {
 			System.out.println("List of books in the thématic "+index+" : ");
 
 			System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-			System.out.printf("| %-5s| %-43s | %-78s | %-20s | %-22s | %-10s | %-10s | %-3s |%n", "NO.","TITRE", "DESCRIPTION", "MAISON EDITION","AUTEUR", " PRIX","ETAT", "QTE");
+			System.out.printf("| %-5s| %-43s | %-78s | %-20s | %-22s | %-10s | %-10s |%n", "NO.","TITRE", "DESCRIPTION", "MAISON EDITION","AUTEUR", " PRIX","ETAT");
 			System.out.println("|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|");
 
 			for (int i = 0; i < book.size(); i++) {
-				System.out.printf("| %-5s| %-43s | %-78s | %-20s | %-22s | %-10s | %-10s | %-3s |%n",book.get(i).getIdBook(),book.get(i).getTitle(), 
+				System.out.printf("| %-5s| %-43s | %-78s | %-20s | %-22s | %-10s | %-10s |%n",book.get(i).getIdBook(),book.get(i).getTitle(), 
 						book.get(i).getDescription(),book.get(i).getPublishingHouse(),
-						book.get(i).getAuthor(),book.get(i).getUnitaryPrice(),book.get(i).getState(),book.get(i).getQty());
+						book.get(i).getAuthor(),book.get(i).getUnitaryPrice(),book.get(i).getState());
 			}			
 
 			System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
