@@ -10,7 +10,7 @@ public class CreateConfigFile {
 
 	}
 	/**
-	 * 
+	 * lecture données de connexion
 	 * @param fileName
 	 * @return Properties
 	 * @throws IOException

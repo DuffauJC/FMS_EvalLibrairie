@@ -15,12 +15,46 @@ import fr.fms.entities.Book;
  */
 public interface IShop {
 
-	public void addCaddy(Book book);				// ajoute un livre au panier	
-	public Book readCaddy(int id);					// retourne un article du panier	
-	public boolean updateCaddy(int id,int qty);			// met à jour la quantitée d'un article du panier
-	public boolean deleteCaddy(int id);					// supprime un article du panier
-	public int order(int idcustomer) ;					// pour creer une commande	
-	public ArrayList<Book> readCaddy();              // retoune la liste du panier
-	public  ArrayList<Book> getBooksByThematic(int id); // retourne la liste des livres d'une thematic
+	/**
+	 * ajoute un livre au panier
+	 * @param book
+	 */
+	public void addCaddy(Book book);
+	/**
+	 * retourne un article du panier	
+	 * @param id
+	 * @return
+	 */
+	public Book readCaddy(int id);
+	/**
+	 * met à jour la quantitée d'un article du panier
+	 * @param id
+	 * @param qty
+	 * @return
+	 */
+	public boolean updateCaddy(int id,int qty);
+	/**
+	 * supprime un article du panier
+	 * @param id
+	 * @return
+	 */
+	public boolean deleteCaddy(int id);
+	/**
+	 *  creation d'une commande 	
+	 * @param idcustomer
+	 * @return
+	 */
+	public int order(int idcustomer) ;
+	/**
+	 * retoune la liste du panier
+	 * @return
+	 */
+	public ArrayList<Book> readCaddy();
+	/**
+	 * retourne la liste des livres d'une thematic
+	 * @param id
+	 * @return
+	 */
+	public  ArrayList<Book> getBooksByThematic(int id);
 	
 }

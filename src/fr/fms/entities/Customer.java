@@ -46,39 +46,76 @@ public class Customer {
 	}
 
 	
+	
+	/**
+	 * @return the idCustomer
+	 */
 	public int getIdCustomer() {
 		return idCustomer;
 	}
+	/**
+	 * @param idCustomer the idCustomer to set
+	 */
 	public void setIdCustomer(int idCustomer) {
 		this.idCustomer = idCustomer;
 	}
+	/**
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
+	/**
+	 * @param name the name to set
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
+	/**
+	 * @return the firstName
+	 */
 	public String getFirstName() {
 		return firstName;
 	}
+	/**
+	 * @param firstName the firstName to set
+	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+	/**
+	 * @return the adress
+	 */
 	public String getAdress() {
 		return adress;
 	}
+	/**
+	 * @param adress the adress to set
+	 */
 	public void setAdress(String adress) {
 		this.adress = adress;
 	}
+	/**
+	 * @return the mail
+	 */
 	public String getMail() {
 		return mail;
 	}
+	/**
+	 * @param mail the mail to set
+	 */
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
+	/**
+	 * @return the phone
+	 */
 	public int getPhone() {
 		return phone;
 	}
+	/**
+	 * @param phone the phone to set
+	 */
 	public void setPhone(int phone) {
 		this.phone = phone;
 	}
@@ -88,8 +125,4 @@ public class Customer {
 				+ adress + ", mail=" + mail + ", phone=" + phone + "]";
 	}
 
-
-
-
-	
 }

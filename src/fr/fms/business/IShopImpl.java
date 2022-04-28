@@ -36,11 +36,8 @@ public class IShopImpl implements IShop {
 		orderDao=DAOFactory.getOrderDao();
 		orderLineDao=DAOFactory.getOrderLineDao();
 	}
-	/**
-	 * add caddy
-	 * @param Book article
-	 * @Override
-	 */
+
+	 @Override
 	public void addCaddy(Book book) {
 		Book bk = caddy.get(book.getIdBook());
 		if(bk!= null) {
@@ -50,11 +47,7 @@ public class IShopImpl implements IShop {
 		
 
 	}
-	/**
-	 * read caddy by id
-	 * @return
-	 * @Override
-	 */
+	 @Override
 	public Book readCaddy(int id)  {
 		Book art = null;
 		if (caddy.get(id)!=null) {
@@ -65,12 +58,8 @@ public class IShopImpl implements IShop {
 
 		return art;
 	}
-	/**
-	 * update caddy
-	 * @param id qty
-	 * @Override
-	 * @return
-	 */
+
+	 @Override
 	public boolean updateCaddy(int id,int qty) {
 		if (caddy.get(id)!=null) {
 			caddy.get(id).setQty(qty);
@@ -80,11 +69,8 @@ public class IShopImpl implements IShop {
 		return true;	
 	}
 
-	/**
-	 * delete item caddy by id
-	 * @return
-	 * @Override
-	 */
+	
+	 @Override
 	public boolean deleteCaddy(int id)  {
 		if (caddy.get(id)!=null) {
 			caddy.remove(id);
@@ -94,10 +80,8 @@ public class IShopImpl implements IShop {
 
 		return true;
 	}
-	/**
-	 * creation de la commande
-	 * @Override
-	 */
+
+	  @Override
 	public int order(int idCustomer) {
 		if(customerDao.read(idCustomer) != null) {
 			double total = getTotal(); 
@@ -127,11 +111,8 @@ public class IShopImpl implements IShop {
 		return cus;
 	}
 
-	/**
-	 * get caddy
-	 * @Override
-	 * @return
-	 */
+
+	 @Override
 	public ArrayList<Book> readCaddy() {
 		caddyToList = caddy.values().stream().collect(Collectors.toCollection(ArrayList::new));     
 		return  caddyToList;
@@ -172,7 +153,7 @@ public class IShopImpl implements IShop {
 	public double getTotal() {
 		double [] total = {0};
 		caddy.values().forEach((a) -> total[0] += a.getUnitaryPrice() * a.getQty()); 	
-		return total[0];
+		return Math.floor(total[0]);
 	}
 
 	/**

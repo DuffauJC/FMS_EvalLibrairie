@@ -11,15 +11,46 @@ import java.util.logging.Logger;
  */
 public interface Dao<T> {
 	
+	/**
+	 * création de la connexion
+	 */
+	public Connection connection=BddConnection.getConnection();
 	
-	public Connection connection=BddConnection.getConnection();  // création de la connexion
 	public static final Logger logger = Logger.getLogger( "SqlExceptions" );
-	
-	public  boolean create(T obj);        //methode de creation en base d'un objet passé en paramètre
-	public  T read(int id);			      // lecture d'un objet en base suivant un identifiant
-	public  boolean update(T obj);        // mise à jour d'un objet en base passé en paramètre
-	public  boolean delete(int id);       // suppression d'un objet en base suivnat un identifiant
-	public  ArrayList<T> readAll() ;	  // lecture d'un table en base		 
-	public ArrayList<T> readByThematic(int id);	// lecture d'une selection suivant un identifiant
+	/**
+	 * methode de creation en base d'un objet passé en paramètre
+	 * @param obj
+	 * @return
+	 */
+	public  boolean create(T obj);
+	/**
+	 * lecture d'un objet en base suivant un identifiant
+	 * @param id
+	 * @return
+	 */
+	public  T read(int id);
+	/**
+	 * mise à jour d'un objet en base passé en paramètre
+	 * @param obj
+	 * @return
+	 */
+	public  boolean update(T obj);
+	/**
+	 * suppression d'un objet en base suivnat un identifiant
+	 * @param id
+	 * @return
+	 */
+	public  boolean delete(int id);
+	/**
+	 * lecture d'un table en base		
+	 * @return
+	 */
+	public  ArrayList<T> readAll() ;
+	/**
+	 * lecture d'une selection suivant un identifiant
+	 * @param id
+	 * @return
+	 */
+	public ArrayList<T> readByThematic(int id); 
 	
 }

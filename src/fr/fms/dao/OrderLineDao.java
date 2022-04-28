@@ -12,7 +12,7 @@ public class OrderLineDao implements Dao<OrderLine> {
 	public boolean create(OrderLine obj) {
 		String str = "INSERT INTO orderlines (IdBook, quantity, unitaryPrice, idOrder) VALUES (?,?,?,?);";	
 		try (PreparedStatement ps = connection.prepareStatement(str)){	
-			ps.setInt(1, obj.getidBook());
+			ps.setInt(1, obj.getIdBook());
 			ps.setInt(2, obj.getQuantity());
 			ps.setDouble(3, obj.getUnitaryPrice());
 			ps.setInt(4, obj.getIdOrder());

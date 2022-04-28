@@ -28,7 +28,7 @@ public class ShopApp {
 
 		while (true) {
 
-			showMenu();
+			showThematics();
 			mainFunction();
 
 		}
@@ -49,6 +49,20 @@ public class ShopApp {
 	 * menu poster
 	 */
 	public static  void showMenu() {
+		System.out.println("*******************************************************************************************");
+		System.out.println("MENU");
+		System.out.print("1.Ajouter au panier - ");
+		System.out.print("2.Voir le panier - ");
+		System.out.print("3.Modifier panier - ");
+		System.out.print("4.Valider commande - ");
+		System.out.print("5.Sortir \n");
+		System.out.println("********************************************************************************************");
+	}
+
+	/**
+	 * thematics poster
+	 */
+	public static  void showThematics() {
 
 		// list of book thematic
 		ArrayList<Thematic>cat=	shopJob.getListThematics();
@@ -64,14 +78,7 @@ public class ShopApp {
 		}
 		System.out.println("------------------------------------------------------------------------------------------------------------------");
 		cat.clear();
-		System.out.println("Welcome, what do you want to do ?");
 
-		System.out.print("1.Ajouter au panier - ");
-		System.out.print("2.Voir le panier - ");
-		System.out.print("3.Modifier panier - ");
-		System.out.print("4.Valider commande - ");
-		System.out.print("5.Sortir \n");
-		System.out.println("----------------------------");
 	}
 	/**
 	 * principal function
@@ -85,8 +92,8 @@ public class ShopApp {
 
 		while(action != 5) {
 			try {
-
-				//showMenu();
+			
+				showMenu();
 
 				action = scan.nextInt();
 
@@ -101,20 +108,8 @@ public class ShopApp {
 					}
 					index =scan.nextInt();
 
-					// list of books of the chosen thématic
+					// list of books of the chosen thématic and add to caddy
 					showChoosenThematic(index);
-					System.out.println("Type the reference to add.");
-
-					while(!scan.hasNextInt()) {
-						System.out.println("The entered value is incorrect, enter a new entry.");
-						scan.next();
-					}
-
-					index =scan.nextInt();
-
-					// read an article according to its identifier
-					// if returned add to cart in business layer
-					shopJob.BookById(index);
 
 					break;
 
@@ -141,11 +136,22 @@ public class ShopApp {
 					//Check if the account exists. 
 					userOk= shopJob.login(mail);
 
-					if (userOk!=null) { displayCommand(userOk);
+					if (userOk!=null) { 
+						displayCommand(userOk);
 					} else {
-						System.out.println("Non-existent customer.");
-						System.out.println("register to order.");
-						register();
+						System.out.println("Non-existent customer, input error ?.");
+						System.out.println("Type your mail to valid order"); 
+						mail=scan.next(); 
+						//Check if the account exists. 
+						userOk= shopJob.login(mail);
+
+						if (userOk!=null) {
+							displayCommand(userOk);
+
+						}else {
+							System.out.println("register to order.");
+							register();	
+						}
 
 					}
 
@@ -176,46 +182,67 @@ public class ShopApp {
 		String adress="";
 		String mail="";
 		int phone=0;
-		
-		System.out.println("Enter your name,firstname,adress,mail,phone number."); 
+
+		System.out.println("Enter your name."); 
 		name=scan.next();
+		System.out.println("Enter your firstname.");
 		firstName=scan.next();
+		System.out.println("Enter your adress.");
 		scan.nextLine();
 		adress= scan.nextLine();
+		System.out.println("Enter your mail.");
 		mail=scan.next();
+		System.out.println("Enter your phone number.");
 		phone=scan.nextInt();
 
 		// enregistrment d'un customer
 		Customer cus=shopJob.createCustomer(new Customer(name,firstName,adress,mail,phone));
-		
-		  if (cus!=null) { 
-			  displayCommand(cus); 
-		  } else {
-			  System.out.println("soucis création de compte.");
-		  }
-	
+
+		if (cus!=null) { 
+			displayCommand(cus); 
+		} else {
+			System.out.println("soucis création de compte.");
+		}
+
 	}
-/**
- * affichage livres en fonction de la thématique choisie
- * @param index
- */
+	/**
+	 * affichage livres en fonction de la thématique choisie
+	 * @param index
+	 */
 	private static void showChoosenThematic(int index) {
 
 		ArrayList<Book> book=shopJob.getBooksByThematic(index);
-		System.out.println("List of books in the thématic "+index+" : ");
+		if (book.isEmpty()) {
+			System.out.println("Aucun livre dans cette thématique.");
+		} else {
+			System.out.println("List of books in the thématic "+index+" : ");
 
-		System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-		System.out.printf("| %-5s| %-33s | %-63s | %-15s | %-20s | %-10s | %-10s |%-3s |%n", "NO.","TITRE", "DESCRIPTION", "MAISON EDITION","AUTEUR", " PRIX","ETAT", "QTE");
-		System.out.println("|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|");
+			System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+			System.out.printf("| %-5s| %-43s | %-78s | %-20s | %-22s | %-10s | %-10s | %-3s |%n", "NO.","TITRE", "DESCRIPTION", "MAISON EDITION","AUTEUR", " PRIX","ETAT", "QTE");
+			System.out.println("|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|");
 
-		for (int i = 0; i < book.size(); i++) {
-			System.out.printf("| %-5s| %-33s | %-63s | %-15s | %-20s | %-10s | %-10s | %-3s |%n",book.get(i).getIdBook(),book.get(i).getTitle(), 
-					book.get(i).getDescription(),book.get(i).getPublishingHouse(),
-					book.get(i).getAuthor(),book.get(i).getUnitaryPrice(),book.get(i).getState(),book.get(i).getQty());
-		}			
+			for (int i = 0; i < book.size(); i++) {
+				System.out.printf("| %-5s| %-43s | %-78s | %-20s | %-22s | %-10s | %-10s | %-3s |%n",book.get(i).getIdBook(),book.get(i).getTitle(), 
+						book.get(i).getDescription(),book.get(i).getPublishingHouse(),
+						book.get(i).getAuthor(),book.get(i).getUnitaryPrice(),book.get(i).getState(),book.get(i).getQty());
+			}			
 
-		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-		book.clear();
+			System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+			System.out.println("Type the reference to add.");
+
+			while(!scan.hasNextInt()) {
+				System.out.println("The entered value is incorrect, enter a new entry.");
+				scan.next();
+			}
+
+			index =scan.nextInt();
+
+			// read an article according to its identifier
+			// if returned add to cart in business layer
+			shopJob.BookById(index);
+			book.clear();
+		}
+
 	}
 
 	/**
@@ -250,9 +277,10 @@ public class ShopApp {
 
 				double subTotal=prix*qty;
 				total+=subTotal;
+
 			}
 			// affichage du total de la commande
-			System.out.printf("| %96s | %-2s |%n"," TOTAL COMMANDE",total);
+			System.out.printf("| %96s | %-2s |%n"," TOTAL COMMANDE",Math.floor(total));
 			System.out.println("------------------------------------------------------------------------------------------------------------");		
 		}
 	}

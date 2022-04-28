@@ -90,9 +90,7 @@ public class BookDao implements Dao<Book> {
 
 		return books;
 	}
-	/**
-	 * lecture liste livres par thematic suivant un identifiant
-	 */
+	@Override
 	public ArrayList<Book> readByThematic(int id) {
 		ArrayList<Book> books=new ArrayList<Book>();
 		String strSql="SELECT * FROM books where thematic_1=? OR thematic_2=? OR thematic_3=? OR thematic_4=?;";	

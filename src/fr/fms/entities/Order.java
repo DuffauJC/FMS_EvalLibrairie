@@ -18,9 +18,9 @@ public class Order {
 	 */
 	public Order(int idOrder, double amountTotal, Date date, int idCustomer) {
 		setIdOrder(idOrder);
-		setamountTotal(amountTotal);
+		setAmountTotal(amountTotal);
 		setDate(date);
-		setidCustomer(idCustomer);
+		setIdCustomer(idCustomer);
 	
 	}
 	/**
@@ -30,40 +30,57 @@ public class Order {
 	 * @param idCustomer
 	 */
 	public Order(double amountTotal, Date date, int idCustomer) {
-		setamountTotal(amountTotal);
+		setAmountTotal(amountTotal);
 		setDate(date);
-		setidCustomer(idCustomer);
+		setIdCustomer(idCustomer);
 	}
 
+	/**
+	 * @return the idOrder
+	 */
 	public int getIdOrder() {
 		return idOrder;
 	}
-
+	/**
+	 * @param idOrder the idOrder to set
+	 */
 	public void setIdOrder(int idOrder) {
 		this.idOrder = idOrder;
 	}
-
-	public double getamountTotal() {
+	/**
+	 * @return the amountTotal
+	 */
+	public double getAmountTotal() {
 		return amountTotal;
 	}
-
-	public void setamountTotal(double amountTotal) {
+	/**
+	 * @param amountTotal the amountTotal to set
+	 */
+	public void setAmountTotal(double amountTotal) {
 		this.amountTotal = amountTotal;
 	}
-
+	/**
+	 * @return the date
+	 */
 	public Date getDate() {
 		return date;
 	}
-
+	/**
+	 * @param date the date to set
+	 */
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
-	public int getidCustomer() {
+	/**
+	 * @return the idCustomer
+	 */
+	public int getIdCustomer() {
 		return idCustomer;
 	}
-
-	public void setidCustomer(int idCustomer) {
+	/**
+	 * @param idCustomer the idCustomer to set
+	 */
+	public void setIdCustomer(int idCustomer) {
 		this.idCustomer = idCustomer;
 	}
 	@Override

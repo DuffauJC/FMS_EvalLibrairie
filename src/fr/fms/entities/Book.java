@@ -101,70 +101,128 @@ setAuthor(author);
 		setAuthor(author);
 	}
 
-
-
+	
+	
+	/**
+	 * @return the idBook
+	 */
 	public int getIdBook() {
 		return idBook;
 	}
+	/**
+	 * @param idBook the idBook to set
+	 */
 	public void setIdBook(int idBook) {
 		this.idBook = idBook;
 	}
+	/**
+	 * @return the title
+	 */
 	public String getTitle() {
 		return title;
 	}
+	/**
+	 * @param title the title to set
+	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	/**
+	 * @return the unitaryPrice
+	 */
 	public double getUnitaryPrice() {
 		return unitaryPrice;
 	}
+	/**
+	 * @param unitaryPrice the unitaryPrice to set
+	 */
 	public void setUnitaryPrice(double unitaryPrice) {
 		this.unitaryPrice = unitaryPrice;
 	}
+	/**
+	 * @return the description
+	 */
 	public String getDescription() {
 		return description;
 	}
+	/**
+	 * @param description the description to set
+	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	/**
+	 * @return the publishingHouse
+	 */
 	public String getPublishingHouse() {
 		return publishingHouse;
 	}
+	/**
+	 * @param publishingHouse the publishingHouse to set
+	 */
 	public void setPublishingHouse(String publishingHouse) {
 		this.publishingHouse = publishingHouse;
 	}
+	/**
+	 * @return the qty
+	 */
 	public int getQty() {
 		return qty;
 	}
+	/**
+	 * @param qty the qty to set
+	 */
 	public void setQty(int qty) {
 		this.qty = qty;
 	}
+	/**
+	 * @return the idThematic_1
+	 */
 	public int getIdThematic_1() {
 		return idThematic_1;
 	}
+	/**
+	 * @param idThematic_1 the idThematic_1 to set
+	 */
 	public void setIdThematic_1(int idThematic_1) {
 		this.idThematic_1 = idThematic_1;
 	}
+	/**
+	 * @return the idThematic_2
+	 */
 	public int getIdThematic_2() {
 		return idThematic_2;
 	}
+	/**
+	 * @param idThematic_2 the idThematic_2 to set
+	 */
 	public void setIdThematic_2(int idThematic_2) {
 		this.idThematic_2 = idThematic_2;
 	}
+	/**
+	 * @return the idThematic_3
+	 */
 	public int getIdThematic_3() {
 		return idThematic_3;
 	}
+	/**
+	 * @param idThematic_3 the idThematic_3 to set
+	 */
 	public void setIdThematic_3(int idThematic_3) {
 		this.idThematic_3 = idThematic_3;
 	}
+	/**
+	 * @return the idThematic_4
+	 */
 	public int getIdThematic_4() {
 		return idThematic_4;
 	}
+	/**
+	 * @param idThematic_4 the idThematic_4 to set
+	 */
 	public void setIdThematic_4(int idThematic_4) {
 		this.idThematic_4 = idThematic_4;
 	}
-
-
 	/**
 	 * @return the state
 	 */
@@ -196,9 +254,4 @@ setAuthor(author);
 				+ idThematic_1 + ", idThematic_2=" + idThematic_2 + ", idThematic_3=" + idThematic_3 + ", idThematic_4="
 				+ idThematic_4 + ", state=" + state + ", author=" + author + "]";
 	}
-
-
-
-
-
 }

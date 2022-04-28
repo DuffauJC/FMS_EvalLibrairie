@@ -7,8 +7,8 @@ public class Thematic {
 	private String description;
 	/**
 	 * 
-	 * @param idCategory
-	 * @param catName
+	 * @param idThematic
+	 * @param name
 	 * @param description
 	 */
 	public Thematic(int idThematic, String name, String description) {
@@ -20,7 +20,7 @@ public class Thematic {
 	}
 	/**
 	 * 
-	 * @param catName
+	 * @param name
 	 * @param description
 	 */
 	public Thematic( String name, String description) {
@@ -30,12 +30,18 @@ public class Thematic {
 		
 	}
 	
-	public String getDescription() {
-		return description;
-	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	/**
+	 * @return the idThematic
+	 */
+	public int getIdThematic() {
+		return idThematic;
+	}
+	/**
+	 * @param idThematic the idThematic to set
+	 */
+	public void setIdThematic(int idThematic) {
+		this.idThematic = idThematic;
 	}
 	/**
 	 * @return the name
@@ -50,16 +56,16 @@ public class Thematic {
 		this.name = name;
 	}
 	/**
-	 * @return the idThematic
+	 * @return the description
 	 */
-	public int getIdThematic() {
-		return idThematic;
+	public String getDescription() {
+		return description;
 	}
 	/**
-	 * @param idThematic the idThematic to set
+	 * @param description the description to set
 	 */
-	public void setIdThematic(int idThematic) {
-		this.idThematic = idThematic;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	@Override
 	public String toString() {

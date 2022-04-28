@@ -2,11 +2,11 @@ package fr.fms.dao;
 
 import java.sql.PreparedStatement;
 
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 
 import fr.fms.entities.Order;
 
@@ -15,10 +15,11 @@ public class OrderDao implements Dao<Order> {
 	
 	@Override
 	public boolean create(Order obj) {
+		
 		String str = "INSERT INTO orders (amountTotal , idCustomer) VALUES (?,?);";	
 		try (PreparedStatement ps = connection.prepareStatement(str,Statement.RETURN_GENERATED_KEYS)){	
-			ps.setDouble(1, obj.getamountTotal());
-			ps.setInt(2, obj.getidCustomer());
+			ps.setDouble(1, obj.getAmountTotal());
+			ps.setInt(2, obj.getIdCustomer());
 			ps.executeUpdate();
 			try(ResultSet generatedKeySet = ps.getGeneratedKeys()){
 				if(generatedKeySet.next()) {
