@@ -30,13 +30,9 @@ public class BookDao implements Dao<Book> {
 				double rsunitaryPrice=rs.getDouble(3);
 				String rsDescription=rs.getString(4);
 				String rsPubH=rs.getString(5);
-				int rsidThem1=rs.getInt(6);
-				int rsidThem2=rs.getInt(7);
-				int rsidThem3=rs.getInt(8);
-				int rsidThem4=rs.getInt(9);
-				String rsState=rs.getString(10);
-				String rsAuthor=rs.getString(11);
-				book=new Book(rsidBook,rsTitle,rsunitaryPrice,rsDescription,rsPubH,rsidThem1,rsidThem2,rsidThem3,rsidThem4,rsState,rsAuthor);
+				String rsState=rs.getString(6);
+				String rsAuthor=rs.getString(7);
+				book=new Book(rsidBook,rsTitle,rsunitaryPrice,rsDescription,rsPubH,rsState,rsAuthor);
 				
 			
 			}
@@ -74,13 +70,9 @@ public class BookDao implements Dao<Book> {
 					double rsunitaryPrice=rs.getDouble(3);
 					String rsDescription=rs.getString(4);
 					String rsPubH=rs.getString(5);
-					int rsidThem1=rs.getInt(6);
-					int rsidThem2=rs.getInt(7);
-					int rsidThem3=rs.getInt(8);
-					int rsidThem4=rs.getInt(9);
-					String rsState=rs.getString(10);
-					String rsAuthor=rs.getString(11);
-					books.add((new Book(rsidBook,rsTitle,rsunitaryPrice,rsDescription,rsPubH,rsidThem1,rsidThem2,rsidThem3,rsidThem4,rsState,rsAuthor)));
+					String rsState=rs.getString(6);
+					String rsAuthor=rs.getString(7);
+					books.add((new Book(rsidBook,rsTitle,rsunitaryPrice,rsDescription,rsPubH,rsState,rsAuthor)));
 				}
 			}
 		}
@@ -93,13 +85,11 @@ public class BookDao implements Dao<Book> {
 	@Override
 	public ArrayList<Book> readByThematic(int id) {
 		ArrayList<Book> books=new ArrayList<Book>();
-		String strSql="SELECT * FROM books where thematic_1=? OR thematic_2=? OR thematic_3=? OR thematic_4=?;";	
+		String strSql="SELECT * FROM books inner join assoc_books_thematics WHERE books.id = assoc_books_thematics.idBook and assoc_books_thematics.idThematic= ?";
+				
 		
 		try(PreparedStatement ps =connection.prepareStatement(strSql)){ 
 			ps.setInt(1, id);
-			ps.setInt(2, id);
-			ps.setInt(3, id);
-			ps.setInt(4, id);
 			ResultSet rs=ps.executeQuery(); 
 			while (rs.next()) {
 				int rsidBook=rs.getInt(1);  
@@ -107,14 +97,12 @@ public class BookDao implements Dao<Book> {
 				double rsunitaryPrice=rs.getDouble(3);
 				String rsDescription=rs.getString(4);
 				String rsPubH=rs.getString(5);
-				int rsidThem1=rs.getInt(6);
-				int rsidThem2=rs.getInt(7);
-				int rsidThem3=rs.getInt(8);
-				int rsidThem4=rs.getInt(9);
-				String rsState=rs.getString(10);
-				String rsAuthor=rs.getString(11);
+				String rsState=rs.getString(6);
+				String rsAuthor=rs.getString(7);
+				int rsassocIdB=rs.getInt(8);  
+				int rsassocIdT=rs.getInt(9);  
 				
-				books.add((new Book(rsidBook,rsTitle,rsunitaryPrice,rsDescription,rsPubH,rsidThem1,rsidThem2,rsidThem3,rsidThem4,rsState,rsAuthor)));
+				books.add((new Book(rsidBook,rsTitle,rsunitaryPrice,rsDescription,rsPubH,rsState,rsAuthor, rsassocIdB,rsassocIdT)));
 
 			}
 

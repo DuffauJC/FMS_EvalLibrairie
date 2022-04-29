@@ -7,15 +7,11 @@ public class Book {
 	private double unitaryPrice;
 	private String description;
 	private String publishingHouse;
-
 	private int qty=1;
-	private int idThematic_1;
-	private int idThematic_2;
-	private int idThematic_3;
-	private int idThematic_4;
 	private String state;
 	private String author;
-
+	private int assocIdB;
+	private int assocIdT;
 
 	/**
 	 * 
@@ -24,43 +20,12 @@ public class Book {
 	 * @param unitaryPrice
 	 * @param description
 	 * @param publishingHouse
-	 * @param idThematic_1
-	 * @param idThematic_2
-	 * @param idThematic_3
-	 * @param idThematic_4
 	 * @param state
-	 * 
+	 * @param author
 	 */
 	public Book(int idBook, String title, double unitaryPrice, String description, String publishingHouse,
-			int idThematic_1, int idThematic_2, int idThematic_3, int idThematic_4, String state,String author
-			) {
-
-		setIdBook(idBook);
-		setTitle(title);
-		setUnitaryPrice(unitaryPrice);
-		setDescription(description);
-		setPublishingHouse(publishingHouse);
-		setQty(qty);
-		setIdThematic_1(idThematic_1);
-		setIdThematic_2(idThematic_2);
-		setIdThematic_3(idThematic_3);
-		setIdThematic_4(idThematic_4);
-		setState(state);
-setAuthor(author);
-	}
-	/**
-	 * 
-	 * @param idBook
-	 * @param title
-	 * @param unitaryPrice
-	 * @param description
-	 * @param publishingHouse
-	 * @param state
-	 */
-	public Book(int idBook, String title, double unitaryPrice, String description, String publishingHouse,
-			 String state,String author
-			) {
-
+			String state,String author,int assocIdB, int assocIdT) {
+			
 		setIdBook(idBook);
 		setTitle(title);
 		setUnitaryPrice(unitaryPrice);
@@ -69,6 +34,21 @@ setAuthor(author);
 		setQty(qty);
 		setState(state);
 		setAuthor(author);
+		setAssocIdB(assocIdB);
+		setAssocIdT(assocIdT);
+	}
+	public Book(int idBook, String title, double unitaryPrice, String description, String publishingHouse,
+			String state,String author) {
+			
+		setIdBook(idBook);
+		setTitle(title);
+		setUnitaryPrice(unitaryPrice);
+		setDescription(description);
+		setPublishingHouse(publishingHouse);
+		setQty(qty);
+		setState(state);
+		setAuthor(author);
+	
 	}
 	/**
 	 * 
@@ -76,33 +56,60 @@ setAuthor(author);
 	 * @param unitaryPrice
 	 * @param description
 	 * @param publishingHouse
-	 * @param qty
-	 * @param idThematic_1
-	 * @param idThematic_2
-	 * @param idThematic_3
-	 * @param idThematic_4
 	 * @param state
-	 *
+	 * @param author
 	 */
 	public Book( String title, double unitaryPrice, String description, String publishingHouse,
-			int idThematic_1, int idThematic_2, int idThematic_3, int idThematic_4, String state,String author
-			) {
+			String state,String author,int assocIdB, int assocIdT) {
 
 		setTitle(title);
 		setUnitaryPrice(unitaryPrice);
 		setDescription(description);
 		setPublishingHouse(publishingHouse);
 		setQty(qty);
-		setIdThematic_1(idThematic_1);
-		setIdThematic_2(idThematic_2);
-		setIdThematic_3(idThematic_3);
-		setIdThematic_4(idThematic_4);
 		setState(state);
 		setAuthor(author);
+		setAssocIdB(assocIdB);
+		setAssocIdT(assocIdT);
+	}
+	
+	public Book( String title, double unitaryPrice, String description, String publishingHouse,
+			String state,String author) {
+
+		setTitle(title);
+		setUnitaryPrice(unitaryPrice);
+		setDescription(description);
+		setPublishingHouse(publishingHouse);
+		setQty(qty);
+		setState(state);
+		setAuthor(author);
+
 	}
 
-	
-	
+	/**
+	 * @return the assocIdB
+	 */
+	public int getAssocIdB() {
+		return assocIdB;
+	}
+	/**
+	 * @param assocIdB the assocIdB to set
+	 */
+	public void setAssocIdB(int assocIdB) {
+		this.assocIdB = assocIdB;
+	}
+	/**
+	 * @return the assocIdT
+	 */
+	public int getAssocIdT() {
+		return assocIdT;
+	}
+	/**
+	 * @param assocIdT the assocIdT to set
+	 */
+	public void setAssocIdT(int assocIdT) {
+		this.assocIdT = assocIdT;
+	}
 	/**
 	 * @return the idBook
 	 */
@@ -175,54 +182,7 @@ setAuthor(author);
 	public void setQty(int qty) {
 		this.qty = qty;
 	}
-	/**
-	 * @return the idThematic_1
-	 */
-	public int getIdThematic_1() {
-		return idThematic_1;
-	}
-	/**
-	 * @param idThematic_1 the idThematic_1 to set
-	 */
-	public void setIdThematic_1(int idThematic_1) {
-		this.idThematic_1 = idThematic_1;
-	}
-	/**
-	 * @return the idThematic_2
-	 */
-	public int getIdThematic_2() {
-		return idThematic_2;
-	}
-	/**
-	 * @param idThematic_2 the idThematic_2 to set
-	 */
-	public void setIdThematic_2(int idThematic_2) {
-		this.idThematic_2 = idThematic_2;
-	}
-	/**
-	 * @return the idThematic_3
-	 */
-	public int getIdThematic_3() {
-		return idThematic_3;
-	}
-	/**
-	 * @param idThematic_3 the idThematic_3 to set
-	 */
-	public void setIdThematic_3(int idThematic_3) {
-		this.idThematic_3 = idThematic_3;
-	}
-	/**
-	 * @return the idThematic_4
-	 */
-	public int getIdThematic_4() {
-		return idThematic_4;
-	}
-	/**
-	 * @param idThematic_4 the idThematic_4 to set
-	 */
-	public void setIdThematic_4(int idThematic_4) {
-		this.idThematic_4 = idThematic_4;
-	}
+
 	/**
 	 * @return the state
 	 */
@@ -250,8 +210,9 @@ setAuthor(author);
 	@Override
 	public String toString() {
 		return "Book [idBook=" + idBook + ", title=" + title + ", unitaryPrice=" + unitaryPrice + ", description="
-				+ description + ", publishingHouse=" + publishingHouse + ", qty=" + qty + ", idThematic_1="
-				+ idThematic_1 + ", idThematic_2=" + idThematic_2 + ", idThematic_3=" + idThematic_3 + ", idThematic_4="
-				+ idThematic_4 + ", state=" + state + ", author=" + author + "]";
+				+ description + ", publishingHouse=" + publishingHouse + ", qty=" + qty + ", state=" + state
+				+ ", author=" + author + ", assocIdB=" + assocIdB + ", assocIdT=" + assocIdT + "]";
 	}
+
+
 }

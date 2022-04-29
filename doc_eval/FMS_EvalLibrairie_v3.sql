@@ -28,10 +28,6 @@ CREATE TABLE `books` (
   `unitaryPrice` double,
   `descritpion` varchar(255),
   `publishing_house` varchar(255),
-  `thematic_1` int,
-  `thematic_2` int,
-  `thematic_3` int,
-  `thematic_4` int,
   `state` varchar(255),
   `author` varchar(255)
 );
@@ -42,16 +38,32 @@ CREATE TABLE `thematics` (
   `description` varchar(255)
 );
 
+CREATE TABLE `assoc_books_thematics` (
+  `idBook` int,
+  `idThematic` int
+);
+
+CREATE TABLE `categories` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `name` varchar(255),
+  `description` varchar(255)
+);
+
+CREATE TABLE `assoc_books_categories` (
+  `idBook` int,
+  `idCategory` int
+);
+
 ALTER TABLE `orderLines` ADD FOREIGN KEY (`idBook`) REFERENCES `books` (`id`);
 
 ALTER TABLE `orders` ADD FOREIGN KEY (`idCustomer`) REFERENCES `customers` (`id`);
 
 ALTER TABLE `orderLines` ADD FOREIGN KEY (`idOrder`) REFERENCES `orders` (`id`);
 
-ALTER TABLE `thematics` ADD FOREIGN KEY (`id`) REFERENCES `books` (`thematic_1`);
+ALTER TABLE `assoc_books_thematics` ADD FOREIGN KEY (`idBook`) REFERENCES `books` (`id`);
 
-ALTER TABLE `thematics` ADD FOREIGN KEY (`id`) REFERENCES `books` (`thematic_2`);
+ALTER TABLE `assoc_books_categories` ADD FOREIGN KEY (`idBook`) REFERENCES `books` (`id`);
 
-ALTER TABLE `thematics` ADD FOREIGN KEY (`id`) REFERENCES `books` (`thematic_3`);
+ALTER TABLE `assoc_books_categories` ADD FOREIGN KEY (`idCategory`) REFERENCES `categories` (`id`);
 
-ALTER TABLE `thematics` ADD FOREIGN KEY (`id`) REFERENCES `books` (`thematic_4`);
+ALTER TABLE `assoc_books_thematics` ADD FOREIGN KEY (`idThematic`) REFERENCES `thematics` (`id`);

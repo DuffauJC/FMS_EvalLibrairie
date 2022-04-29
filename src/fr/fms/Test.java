@@ -35,10 +35,12 @@ public class Test {
 		shopInit();
 
 		// lecture de la table des livres
+		
 		/*
 		 * System.out.println("Liste des livres : "); for(Book b : bookDao.readAll())
 		 * System.out.println(b);
 		 */
+		 
 		System.out.println("-------------------------------------------------------");
 
 		// lecture d'un livre en fonction de son identifiant
@@ -58,11 +60,13 @@ public class Test {
 		System.out.println("-------------------------------------------------------");
 	
 		// lecture d'une thematique en fonction de son identifiant
+		
 		/*
-		 * Thematic th=thematicDao.read(1); if (bk!=null) {
+		 * Thematic th=thematicDao.read(1); if (th!=null) {
 		 * System.out.println("Affichage de la thématique : "+th.toString()); } else {
 		 * System.out.println("Thématique inexistante"); }
 		 */
+		 
 		 
 		System.out.println("-------------------------------------------------------");
 
@@ -70,8 +74,9 @@ public class Test {
 		
 		/*
 		 * System.out.println("Liste des livre par thématics : "); for(Book bk :
-		 * bookDao.readByThematic(9)) System.out.println(bk);
+		 * bookDao.readByThematic(2)) System.out.println(bk);
 		 */
+		 
 		 
 		System.out.println("-------------------------------------------------------");
 		

@@ -27,7 +27,7 @@ public class ShopApp {
 		welcome();
 
 		while (true) {
-
+			showBooks();
 			showThematics();
 			mainFunction();
 
@@ -149,7 +149,28 @@ public class ShopApp {
 		System.out.print("5.Sortir \n");
 		System.out.println("********************************************************************************************");
 	}
+	/**
+	 * books poster
+	 */
+	public static  void showBooks() {
 
+		// list of book thematic
+		ArrayList<Book>book=shopJob.getListABooks();
+
+		System.out.println("List of books.\n");
+		System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+		System.out.printf("| %-5s| %-43s | %-78s | %-20s | %-22s | %-10s | %-10s |%n", "NO.","TITRE", "DESCRIPTION", "MAISON EDITION","AUTEUR", " PRIX","ETAT");
+		System.out.println("|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|");
+
+		for (int i = 0; i < book.size(); i++) {
+			System.out.printf("| %-5s| %-43s | %-78s | %-20s | %-22s | %-10s | %-10s |%n",book.get(i).getIdBook(),book.get(i).getTitle(), 
+					book.get(i).getDescription(),book.get(i).getPublishingHouse(),
+					book.get(i).getAuthor(),book.get(i).getUnitaryPrice(),book.get(i).getState());
+		}	
+		System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+		book.clear();
+
+	}
 	/**
 	 * thematics poster
 	 */
@@ -160,11 +181,11 @@ public class ShopApp {
 
 		System.out.println("List of thématics.\n");
 		System.out.println("------------------------------------------------------------------------------------------------------------------");
-		System.out.printf("| %-15s | %-22s | %-68s |%n", "REF", "NOM", "DESCRIPTION");
-		System.out.println("|-----------------|------------------------|----------------------------------------------------------------------|");
+		System.out.printf("| %-5s | %-22s | %-68s |%n", "REF", "NOM", "DESCRIPTION");
+		System.out.println("|---------------------------------------------------------------------------------------------------------------|");
 
 		for (int i = 0; i < cat.size(); i++) {
-			System.out.printf("| %-15s | %-22s | %-68s |%n", cat.get(i).getIdThematic(), cat.get(i).getName(),
+			System.out.printf("| %-5s | %-22s | %-68s |%n", cat.get(i).getIdThematic(), cat.get(i).getName(),
 					cat.get(i).getDescription());
 		}
 		System.out.println("------------------------------------------------------------------------------------------------------------------");
@@ -176,9 +197,9 @@ public class ShopApp {
 	 */
 	private static void register() {
 		String regExp="[a-zA-Z]+";
-		
+
 		String rep;
-		
+
 		String name=""; 
 		String firstName="";
 		String adress="";
@@ -225,17 +246,16 @@ public class ShopApp {
 		} else {
 			System.out.println("List of books in the thématic "+index+" : ");
 
-			System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 			System.out.printf("| %-5s| %-43s | %-78s | %-20s | %-22s | %-10s | %-10s |%n", "NO.","TITRE", "DESCRIPTION", "MAISON EDITION","AUTEUR", " PRIX","ETAT");
-			System.out.println("|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|");
+			System.out.println("|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|");
 
 			for (int i = 0; i < book.size(); i++) {
 				System.out.printf("| %-5s| %-43s | %-78s | %-20s | %-22s | %-10s | %-10s |%n",book.get(i).getIdBook(),book.get(i).getTitle(), 
 						book.get(i).getDescription(),book.get(i).getPublishingHouse(),
 						book.get(i).getAuthor(),book.get(i).getUnitaryPrice(),book.get(i).getState());
-			}			
-
-			System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+			}	
+			System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 			System.out.println("Type the reference to add.");
 
 			while(!scan.hasNextInt()) {
@@ -285,7 +305,7 @@ public class ShopApp {
 
 				double subTotal=prix*qty;
 				total+=subTotal;
-				
+
 			}
 			// affichage du total de la commande
 			System.out.printf("| %96s | %-2s |%n"," TOTAL COMMANDE",total);
